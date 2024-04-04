@@ -6,13 +6,14 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
-    "format": "npx prettier --write .",
+    "format": "npx prettier --write . --plugin=prettier-plugin-tailwindcss",
     "style": "prettier --check \"src/**/*.{ts,tsx}\"",
     "style:fix": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "author": "Ridemountainpig",
   "license": "MIT",
   "dependencies": {
+    "lucide-react": "^0.363.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -29,7 +30,8 @@
     "autoprefixer": "^10.4.16",
     "lint-staged": "^15.2.0",
     "postcss": "^8.4.32",
-    "prettier": "^2.2.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.13",
     "shell-quote": "^1.8.1",
     "tailwindcss": "^3.3.6",
     "typescript": "^5.0.4",
