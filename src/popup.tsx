@@ -1,16 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./popup.css";
 import { LevelColorSelect } from "./components/level-color-select";
 
 const Popup = () => {
-  const [levelColor, setLevelColor] = useState([
-    "#ebedf0",
-    "#ebedf0",
-    "#ebedf0",
-    "#ebedf0",
-  ]);
-  const [paletteToggle, setPaletteToggle] = useState("L0");
+  const [levelColor, setLevelColor] = useState(["", "", "", ""]);
+  const [paletteToggle, setPaletteToggle] = useState(-1);
+
+  const setColor = () => {
+    const data = { levelColor: levelColor };
+    chrome.runtime.sendMessage({ type: "setColor", data: data }, () => {
+      if (chrome.runtime.lastError) {
+        console.error(
+          "Error sending setColor message:",
+          JSON.stringify(chrome.runtime.lastError, null, 2),
+        );
+      } else {
+        console.log("Data sent to the background script.");
+      }
+    });
+    chrome.runtime.sendMessage({ type: "updatePageGraphColor" }, () => {
+      if (chrome.runtime.lastError) {
+        console.error(
+          "Error sending updateColor message:",
+          JSON.stringify(chrome.runtime.lastError, null, 2),
+        );
+      } else {
+        console.log("Data sent to the background script.");
+      }
+    });
+  };
+
+  const getColor = () => {
+    chrome.runtime.sendMessage(
+      { type: "getColor", data: "levelColor" },
+      (response) => {
+        if (chrome.runtime.lastError) {
+          console.error(
+            "Error receiving getColor message:",
+            JSON.stringify(chrome.runtime.lastError, null, 2),
+          );
+        } else {
+          console.log("Data received from the background:", response);
+          if (Array.isArray(response) && response.length > 0) {
+            setLevelColor(response);
+          } else {
+            setLevelColor(["#9be9a8", "#40c463", "#30a14e", "#216e39"]);
+          }
+        }
+      },
+    );
+  };
+
+  // useEffect for getColor, runs only once when the component mounts
+  useEffect(() => {
+    getColor();
+  }, []);
+
+  // useEffect for setColor, runs every time levelColor changes
+  useEffect(() => {
+    setColor();
+  }, [levelColor]);
 
   return (
     <div
@@ -32,32 +82,36 @@ const Popup = () => {
       <div className="mx-4 rounded-md border-2 border-solid border-[#d0d7de] bg-white p-4">
         <div className="relative flex w-full justify-around">
           <LevelColorSelect
-            level="L1"
-            color={levelColor[0]}
+            level={0}
+            color={levelColor[0].toUpperCase()}
             left="40"
-            paletteToggle={paletteToggle == "L1"}
+            paletteToggle={paletteToggle == 0}
             setPaletteToggle={setPaletteToggle}
+            setLevelColor={setLevelColor}
           ></LevelColorSelect>
           <LevelColorSelect
-            level="L2"
-            color={levelColor[1]}
+            level={1}
+            color={levelColor[1].toUpperCase()}
             left="125"
-            paletteToggle={paletteToggle == "L2"}
+            paletteToggle={paletteToggle == 1}
             setPaletteToggle={setPaletteToggle}
+            setLevelColor={setLevelColor}
           ></LevelColorSelect>
           <LevelColorSelect
-            level="L3"
-            color={levelColor[2]}
+            level={2}
+            color={levelColor[2].toUpperCase()}
             left="208"
-            paletteToggle={paletteToggle == "L3"}
+            paletteToggle={paletteToggle == 2}
             setPaletteToggle={setPaletteToggle}
+            setLevelColor={setLevelColor}
           ></LevelColorSelect>
           <LevelColorSelect
-            level="L4"
-            color={levelColor[3]}
+            level={3}
+            color={levelColor[3].toUpperCase()}
             left="291"
-            paletteToggle={paletteToggle == "L4"}
+            paletteToggle={paletteToggle == 3}
             setPaletteToggle={setPaletteToggle}
+            setLevelColor={setLevelColor}
           ></LevelColorSelect>
         </div>
       </div>

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-palette .react-colorful {
+  width: 95%;
+  height: 78px;
+}
+.react-palette .react-colorful__hue {
+  height: 8px;
+}
+
+.react-palette .react-colorful__saturation-pointer {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.react-palette .react-colorful__hue-pointer,
+.custom-pointers .react-colorful__alpha-pointer {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}

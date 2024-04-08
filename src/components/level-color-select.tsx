@@ -2,11 +2,12 @@ import React from "react";
 import { Palette } from "./palette";
 
 type LevelColorSelectProps = {
-  level: string;
+  level: number;
   color: string;
   left: string;
   paletteToggle: boolean;
-  setPaletteToggle: (value: string | ((prevVar: string) => string)) => void;
+  setPaletteToggle: (value: number | ((prevVar: number) => number)) => void;
+  setLevelColor: (value: string[] | ((prevVar: string[]) => string[])) => void;
 };
 
 export const LevelColorSelect: React.FC<LevelColorSelectProps> = ({
@@ -15,20 +16,22 @@ export const LevelColorSelect: React.FC<LevelColorSelectProps> = ({
   left,
   paletteToggle,
   setPaletteToggle,
+  setLevelColor,
 }) => {
   return (
     <div>
       <div className="flex h-fit items-center">
         <div className="h-2 w-2 rounded-full border-2 border-solid border-[#d0d7de] bg-shark-50"></div>
         <span className="ml-1 text-sm font-bold tracking-wider text-shark-400">
-          {level}
+          L{level}
         </span>
       </div>
       <button
-        className="h-11 w-11 rounded-md border-2 border-solid border-[#d0d7de] bg-[#ebedf0]"
+        className="h-11 w-11 rounded-md border-2 border-solid border-[#d0d7de]"
+        style={{ backgroundColor: color }}
         onClick={() => {
           if (paletteToggle) {
-            setPaletteToggle("");
+            setPaletteToggle(-1);
             return;
           }
           setPaletteToggle(level);
@@ -38,7 +41,15 @@ export const LevelColorSelect: React.FC<LevelColorSelectProps> = ({
         {color}
       </div>
       <div className="absolute -left-2.5 top-[6.2rem]">
-        {paletteToggle && <Palette left={left}></Palette>}
+        {paletteToggle && (
+          <Palette
+            colorProps={color}
+            level={level}
+            left={left}
+            setLevelColor={setLevelColor}
+            setPaletteToggle={setPaletteToggle}
+          ></Palette>
+        )}
       </div>
     </div>
   );
