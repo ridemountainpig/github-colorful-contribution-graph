@@ -12,6 +12,7 @@ export default defineConfig({
         options: resolve(__dirname, "options.html"),
         service_worker: resolve(__dirname, "src/background.ts"),
         content_script: resolve(__dirname, "src/content-script.ts"),
+        setcolor_script: resolve(__dirname, "src/setcolor-script.ts"),
       },
       output: {
         chunkFileNames: "[name].[hash].js",
