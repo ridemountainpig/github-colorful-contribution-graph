@@ -17,6 +17,7 @@ Enhance your GitHub experience with the Colorful GitHub Contribution Graph Chrom
 
 ## Screenshots
 <div align="center">
+    <img src="https://github.com/ridemountainpig/github-colorful-contribution-graph/assets/92412722/6388a7ba-d139-40db-b57d-2a4a24e3482f" />
     <img src="https://github.com/ridemountainpig/github-colorful-contribution-graph/assets/92412722/4fea10fd-b7b0-4229-ba88-6002ee2e67da" />
     <img src="https://github.com/ridemountainpig/github-colorful-contribution-graph/assets/92412722/112f762a-a01a-4440-a351-12f237af931b" />
 </div>
