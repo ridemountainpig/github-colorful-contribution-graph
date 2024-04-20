@@ -12,7 +12,7 @@ Enhance your GitHub experience with the Colorful GitHub Contribution Graph Chrom
 
 ## Usage
 1. Install the GitHub Colorful Contribution Graph extension from the [Chrome Extension Store](https://chromewebstore.google.com/detail/github-colorful-contribut/jgalpejpppcokelegimcapjbbokpjpfa?hl=en&authuser=0).
-2. Open the extension and set the colors for levels 1 to 4.
+2. Open the extension and set the colors for levels 0 to 4.
 3. Go to GitHub to see your personal, colorful contribution graph and activity.
 
 ## Screenshots

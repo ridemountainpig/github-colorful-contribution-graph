@@ -4,7 +4,7 @@ import "./popup.css";
 import { LevelColorSelect } from "./components/level-color-select";
 
 const Popup = () => {
-  const [levelColor, setLevelColor] = useState(["", "", "", ""]);
+  const [levelColor, setLevelColor] = useState(["", "", "", "", ""]);
   const [paletteToggle, setPaletteToggle] = useState(-1);
 
   const setColor = () => {
@@ -45,7 +45,7 @@ const Popup = () => {
           if (Array.isArray(response) && response.length > 0) {
             setLevelColor(response);
           } else {
-            setLevelColor(["#9be9a8", "#40c463", "#30a14e", "#216e39"]);
+            setLevelColor(["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]);
           }
         }
       },
@@ -84,7 +84,7 @@ const Popup = () => {
           <LevelColorSelect
             level={0}
             color={levelColor[0].toUpperCase()}
-            left="40"
+            left="34"
             paletteToggle={paletteToggle == 0}
             setPaletteToggle={setPaletteToggle}
             setLevelColor={setLevelColor}
@@ -92,7 +92,7 @@ const Popup = () => {
           <LevelColorSelect
             level={1}
             color={levelColor[1].toUpperCase()}
-            left="125"
+            left="100"
             paletteToggle={paletteToggle == 1}
             setPaletteToggle={setPaletteToggle}
             setLevelColor={setLevelColor}
@@ -100,7 +100,7 @@ const Popup = () => {
           <LevelColorSelect
             level={2}
             color={levelColor[2].toUpperCase()}
-            left="208"
+            left="168"
             paletteToggle={paletteToggle == 2}
             setPaletteToggle={setPaletteToggle}
             setLevelColor={setLevelColor}
@@ -108,8 +108,16 @@ const Popup = () => {
           <LevelColorSelect
             level={3}
             color={levelColor[3].toUpperCase()}
-            left="291"
+            left="234"
             paletteToggle={paletteToggle == 3}
+            setPaletteToggle={setPaletteToggle}
+            setLevelColor={setLevelColor}
+          ></LevelColorSelect>
+          <LevelColorSelect
+            level={4}
+            color={levelColor[4].toUpperCase()}
+            left="300"
+            paletteToggle={paletteToggle == 4}
             setPaletteToggle={setPaletteToggle}
             setLevelColor={setLevelColor}
           ></LevelColorSelect>

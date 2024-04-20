@@ -13,10 +13,11 @@ const observer = new MutationObserver((mutations, obs) => {
       const LevelFourColorValue = hexToRgb("#216e39");
 
       // Set contribution graph colors
-      root.style.setProperty("--color-calendar-graph-day-L1-bg", response[0]);
-      root.style.setProperty("--color-calendar-graph-day-L2-bg", response[1]);
-      root.style.setProperty("--color-calendar-graph-day-L3-bg", response[2]);
-      root.style.setProperty("--color-calendar-graph-day-L4-bg", response[3]);
+      root.style.setProperty("--color-calendar-graph-day-bg", response[0]);
+      root.style.setProperty("--color-calendar-graph-day-L1-bg", response[1]);
+      root.style.setProperty("--color-calendar-graph-day-L2-bg", response[2]);
+      root.style.setProperty("--color-calendar-graph-day-L3-bg", response[3]);
+      root.style.setProperty("--color-calendar-graph-day-L4-bg", response[4]);
 
       const observer = new MutationObserver((mutations, obs) => {
         const yearlyContributions = document.querySelector(
@@ -24,20 +25,24 @@ const observer = new MutationObserver((mutations, obs) => {
         );
         if (yearlyContributions) {
           root.style.setProperty(
-            "--color-calendar-graph-day-L1-bg",
+            "--color-calendar-graph-day-bg",
             response[0],
           );
           root.style.setProperty(
-            "--color-calendar-graph-day-L2-bg",
+            "--color-calendar-graph-day-L1-bg",
             response[1],
           );
           root.style.setProperty(
-            "--color-calendar-graph-day-L3-bg",
+            "--color-calendar-graph-day-L2-bg",
             response[2],
           );
           root.style.setProperty(
-            "--color-calendar-graph-day-L4-bg",
+            "--color-calendar-graph-day-L3-bg",
             response[3],
+          );
+          root.style.setProperty(
+            "--color-calendar-graph-day-L4-bg",
+            response[4],
           );
           obs.disconnect(); // Stop observing once we've applied our changes
         }
@@ -51,15 +56,15 @@ const observer = new MutationObserver((mutations, obs) => {
       // Set contribution activity highlight blob colors
       const highlightBlob = document.querySelector(".js-highlight-blob");
       if (highlightBlob) {
-        highlightBlob.setAttribute("fill", response[1]);
-        highlightBlob.setAttribute("stroke", response[1]);
+        highlightBlob.setAttribute("fill", response[2]);
+        highlightBlob.setAttribute("stroke", response[2]);
       }
 
       const observerHighlightBlob = new MutationObserver((mutations, obs) => {
         const highlightBlob = document.querySelector(".js-highlight-blob");
         if (highlightBlob) {
-          highlightBlob.setAttribute("fill", response[1]);
-          highlightBlob.setAttribute("stroke", response[1]);
+          highlightBlob.setAttribute("fill", response[2]);
+          highlightBlob.setAttribute("stroke", response[2]);
           obs.disconnect(); // Stop observing once we've applied our changes
         }
       });
@@ -76,19 +81,19 @@ const observer = new MutationObserver((mutations, obs) => {
 
       progressBars.forEach((bar: Element) => {
         if ((bar as HTMLElement).style.backgroundColor === LevelOneColorValue) {
-          (bar as HTMLElement).style.backgroundColor = response[0];
+          (bar as HTMLElement).style.backgroundColor = response[1];
         } else if (
           (bar as HTMLElement).style.backgroundColor === LevelTwoColorValue
         ) {
-          (bar as HTMLElement).style.backgroundColor = response[1];
+          (bar as HTMLElement).style.backgroundColor = response[2];
         } else if (
           (bar as HTMLElement).style.backgroundColor === LevelThreeColorValue
         ) {
-          (bar as HTMLElement).style.backgroundColor = response[2];
+          (bar as HTMLElement).style.backgroundColor = response[3];
         } else if (
           (bar as HTMLElement).style.backgroundColor === LevelFourColorValue
         ) {
-          (bar as HTMLElement).style.backgroundColor = response[3];
+          (bar as HTMLElement).style.backgroundColor = response[4];
         }
       });
 
@@ -105,20 +110,20 @@ const observer = new MutationObserver((mutations, obs) => {
             if (
               (bar as HTMLElement).style.backgroundColor === LevelOneColorValue
             ) {
-              (bar as HTMLElement).style.backgroundColor = response[0];
+              (bar as HTMLElement).style.backgroundColor = response[1];
             } else if (
               (bar as HTMLElement).style.backgroundColor === LevelTwoColorValue
             ) {
-              (bar as HTMLElement).style.backgroundColor = response[1];
+              (bar as HTMLElement).style.backgroundColor = response[2];
             } else if (
               (bar as HTMLElement).style.backgroundColor ===
               LevelThreeColorValue
             ) {
-              (bar as HTMLElement).style.backgroundColor = response[2];
+              (bar as HTMLElement).style.backgroundColor = response[3];
             } else if (
               (bar as HTMLElement).style.backgroundColor === LevelFourColorValue
             ) {
-              (bar as HTMLElement).style.backgroundColor = response[3];
+              (bar as HTMLElement).style.backgroundColor = response[4];
             }
           });
           obs.disconnect(); // Stop observing once we've applied our changes
