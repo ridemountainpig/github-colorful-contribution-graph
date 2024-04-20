@@ -68,7 +68,7 @@ export const Palette: React.FC<PaletteProps> = ({
             className={`h-8 w-32 rounded-md border border-solid border-shark-200 bg-[#f6f8fa] font-mono text-sm ${
               isColorValid ? "" : "text-[#d1242f]"
             }`}
-            value={color}
+            value={color.toUpperCase()}
             onChange={handleChange}
           />
         </div>
