@@ -24,10 +24,7 @@ const observer = new MutationObserver((mutations, obs) => {
           ".js-yearly-contributions",
         );
         if (yearlyContributions) {
-          root.style.setProperty(
-            "--color-calendar-graph-day-bg",
-            response[0],
-          );
+          root.style.setProperty("--color-calendar-graph-day-bg", response[0]);
           root.style.setProperty(
             "--color-calendar-graph-day-L1-bg",
             response[1],

@@ -40,7 +40,7 @@ export const LevelColorSelect: React.FC<LevelColorSelectProps> = ({
       <div className="text-center text-[8px] font-bold tracking-wider text-shark-400">
         {color}
       </div>
-      <div className="absolute -left-2.5 top-[6.2rem]">
+      <div className="absolute -left-[18px] top-[6.2rem] z-10">
         {paletteToggle && (
           <Palette
             colorProps={color}

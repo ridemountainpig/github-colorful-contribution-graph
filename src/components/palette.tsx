@@ -56,7 +56,7 @@ export const Palette: React.FC<PaletteProps> = ({
   };
 
   return (
-    <div className="relative h-36 w-[22rem] rounded-md border-2 border-solid border-shark-200 bg-white p-2">
+    <div className="relative h-36 w-[23rem] rounded-md border-2 border-solid border-shark-200 bg-white p-2">
       <div className="flex h-fit items-center justify-center gap-x-2 py-2">
         <div
           className="h-8 w-8 rounded-md"
