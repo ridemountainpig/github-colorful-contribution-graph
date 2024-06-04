@@ -86,7 +86,7 @@ const Popup = () => {
   return (
     <div
       className="bg-travertine-400"
-      style={{ width: "400px", height: "350px" }}
+      style={{ width: "400px", height: "360px" }}
     >
       <div className="flex h-fit items-center justify-center gap-x-4 py-4">
         <div className="text-2xl font-bold tracking-widest text-shark-500">
@@ -163,7 +163,7 @@ const Popup = () => {
         </div>
       </div>
       <div className="relative mx-4 mt-1">
-        <div className="z-0 h-[96px] w-full overflow-scroll py-1">
+        <div className="z-0 h-[110px] w-full overflow-scroll py-1 no-scrollbar">
           <div className="flex flex-wrap gap-[0.3rem]">
             {themes.map((theme, index) => (
               <div
