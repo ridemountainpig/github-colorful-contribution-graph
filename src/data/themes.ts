@@ -83,10 +83,10 @@ export const themes: Theme[] = [
   },
   {
     name: "Psyduck",
-    level0: "#fffde5",
-    level1: "#fff2ae",
-    level2: "#ffe0b1",
-    level3: "#ffbd7f",
-    level4: "#ff9548",
+    level0: "#ffffff",
+    level1: "#fff7e1",
+    level2: "#ffe7ab",
+    level3: "#ffd66f",
+    level4: "#ffbc1e",
   },
 ];
