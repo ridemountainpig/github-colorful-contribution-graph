@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Github Colorful Contribution Graph",
   "description": "Colorful contribution graph for Github",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
