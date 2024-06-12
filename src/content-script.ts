@@ -1,16 +1,41 @@
+function hexToRgb(hex: string) {
+  // Remove the "#" if it's there
+  hex = hex.replace(/^#/, "");
+
+  // If shorthand format, convert to full format
+  if (hex.length === 3) {
+    hex = hex
+      .split("")
+      .map(function (hexPart) {
+        return hexPart + hexPart;
+      })
+      .join("");
+  }
+
+  // Convert to RGB
+  var bigint = parseInt(hex, 16);
+  var r = (bigint >> 16) & 255;
+  var g = (bigint >> 8) & 255;
+  var b = bigint & 255;
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 const observer = new MutationObserver((mutations, obs) => {
   chrome.runtime.sendMessage(
     { type: "getColor", data: "levelColor" },
     function (response) {
+      if (!response) {
+        response = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
+      }
+
       // Access the :root element
       const root = document.documentElement;
 
-      const style = getComputedStyle(root);
-
-      const LevelOneColorValue = hexToRgb("#9be9a8");
-      const LevelTwoColorValue = hexToRgb("#40c463");
-      const LevelThreeColorValue = hexToRgb("#30a14e");
-      const LevelFourColorValue = hexToRgb("#216e39");
+      const LevelOneColorValue = ["#9be9a8", hexToRgb("#9be9a8")];
+      const LevelTwoColorValue = ["#40c463", hexToRgb("#40c463")];
+      const LevelThreeColorValue = ["#30a14e", hexToRgb("#30a14e")];
+      const LevelFourColorValue = ["#216e39", hexToRgb("#216e39")];
 
       // Set contribution graph colors
       root.style.setProperty("--color-calendar-graph-day-bg", response[0]);
@@ -77,19 +102,14 @@ const observer = new MutationObserver((mutations, obs) => {
       );
 
       progressBars.forEach((bar: Element) => {
-        if ((bar as HTMLElement).style.backgroundColor === LevelOneColorValue) {
+        const barColor = (bar as HTMLElement).style.backgroundColor;
+        if (LevelOneColorValue.includes(barColor)) {
           (bar as HTMLElement).style.backgroundColor = response[1];
-        } else if (
-          (bar as HTMLElement).style.backgroundColor === LevelTwoColorValue
-        ) {
+        } else if (LevelTwoColorValue.includes(barColor)) {
           (bar as HTMLElement).style.backgroundColor = response[2];
-        } else if (
-          (bar as HTMLElement).style.backgroundColor === LevelThreeColorValue
-        ) {
+        } else if (LevelThreeColorValue.includes(barColor)) {
           (bar as HTMLElement).style.backgroundColor = response[3];
-        } else if (
-          (bar as HTMLElement).style.backgroundColor === LevelFourColorValue
-        ) {
+        } else if (LevelFourColorValue.includes(barColor)) {
           (bar as HTMLElement).style.backgroundColor = response[4];
         }
       });
@@ -104,22 +124,14 @@ const observer = new MutationObserver((mutations, obs) => {
           );
 
           progressBars.forEach((bar: Element) => {
-            if (
-              (bar as HTMLElement).style.backgroundColor === LevelOneColorValue
-            ) {
+            const barColor = (bar as HTMLElement).style.backgroundColor;
+            if (LevelOneColorValue.includes(barColor)) {
               (bar as HTMLElement).style.backgroundColor = response[1];
-            } else if (
-              (bar as HTMLElement).style.backgroundColor === LevelTwoColorValue
-            ) {
+            } else if (LevelTwoColorValue.includes(barColor)) {
               (bar as HTMLElement).style.backgroundColor = response[2];
-            } else if (
-              (bar as HTMLElement).style.backgroundColor ===
-              LevelThreeColorValue
-            ) {
+            } else if (LevelThreeColorValue.includes(barColor)) {
               (bar as HTMLElement).style.backgroundColor = response[3];
-            } else if (
-              (bar as HTMLElement).style.backgroundColor === LevelFourColorValue
-            ) {
+            } else if (LevelFourColorValue.includes(barColor)) {
               (bar as HTMLElement).style.backgroundColor = response[4];
             }
           });
@@ -139,26 +151,3 @@ observer.observe(document.body, {
   childList: true,
   subtree: true,
 });
-
-function hexToRgb(hex: string) {
-  // Remove the "#" if it's there
-  hex = hex.replace(/^#/, "");
-
-  // If shorthand format, convert to full format
-  if (hex.length === 3) {
-    hex = hex
-      .split("")
-      .map(function (hexPart) {
-        return hexPart + hexPart;
-      })
-      .join("");
-  }
-
-  // Convert to RGB
-  var bigint = parseInt(hex, 16);
-  var r = (bigint >> 16) & 255;
-  var g = (bigint >> 8) & 255;
-  var b = bigint & 255;
-
-  return `rgb(${r}, ${g}, ${b})`;
-}
