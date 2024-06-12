@@ -8,6 +8,7 @@ import { themes } from "./data/themes";
 const Popup = () => {
   const [levelColor, setLevelColor] = useState(["", "", "", "", ""]);
   const [paletteToggle, setPaletteToggle] = useState(-1);
+  const [firstRender, setFirstRender] = useState(true);
 
   const setColor = () => {
     const data = { levelColor: levelColor };
@@ -67,7 +68,11 @@ const Popup = () => {
 
   // useEffect for setColor, runs every time levelColor changes
   useEffect(() => {
-    setColor();
+    if (!firstRender) {
+      setColor();
+    } else {
+      setFirstRender(false);
+    }
   }, [levelColor]);
 
   // Select the theme script
@@ -163,7 +168,7 @@ const Popup = () => {
         </div>
       </div>
       <div className="relative mx-4 mt-1">
-        <div className="z-0 h-[110px] w-full overflow-scroll py-1 no-scrollbar">
+        <div className="no-scrollbar z-0 h-[110px] w-full overflow-scroll py-1">
           <div className="flex flex-wrap gap-[0.3rem]">
             {themes.map((theme, index) => (
               <div
