@@ -32,10 +32,38 @@ const observer = new MutationObserver((mutations, obs) => {
       // Access the :root element
       const root = document.documentElement;
 
-      const LevelOneColorValue = ["#9be9a8", hexToRgb("#9be9a8")];
-      const LevelTwoColorValue = ["#40c463", hexToRgb("#40c463")];
-      const LevelThreeColorValue = ["#30a14e", hexToRgb("#30a14e")];
-      const LevelFourColorValue = ["#216e39", hexToRgb("#216e39")];
+      const LevelOneColorValue = [
+        "#9be9a8",
+        hexToRgb("#9be9a8"),
+        "#ffee4a",
+        hexToRgb("#ffee4a"),
+        "#B6E3FF",
+        hexToRgb("#B6E3FF"),
+      ];
+      const LevelTwoColorValue = [
+        "#40c463",
+        hexToRgb("#40c463"),
+        "#ffc501",
+        hexToRgb("#ffc501"),
+        "#54AEFF",
+        hexToRgb("#54AEFF"),
+      ];
+      const LevelThreeColorValue = [
+        "#30a14e",
+        hexToRgb("#30a14e"),
+        "#fe9600",
+        hexToRgb("#fe9600"),
+        "#0969DA",
+        hexToRgb("#0969DA"),
+      ];
+      const LevelFourColorValue = [
+        "#216e39",
+        hexToRgb("#216e39"),
+        "#03001c",
+        hexToRgb("#03001c"),
+        "#0A3069",
+        hexToRgb("#0A3069"),
+      ];
 
       // Set contribution graph colors
       root.style.setProperty("--color-calendar-graph-day-bg", response[0]);
@@ -43,6 +71,50 @@ const observer = new MutationObserver((mutations, obs) => {
       root.style.setProperty("--color-calendar-graph-day-L2-bg", response[2]);
       root.style.setProperty("--color-calendar-graph-day-L3-bg", response[3]);
       root.style.setProperty("--color-calendar-graph-day-L4-bg", response[4]);
+
+      // set contribution halloween graph colors
+      root.style.setProperty(
+        "--color-calendar-halloween-graph-day-bg",
+        response[0],
+      );
+      root.style.setProperty(
+        "--color-calendar-halloween-graph-day-L1-bg",
+        response[1],
+      );
+      root.style.setProperty(
+        "--color-calendar-halloween-graph-day-L2-bg",
+        response[2],
+      );
+      root.style.setProperty(
+        "--color-calendar-halloween-graph-day-L3-bg",
+        response[3],
+      );
+      root.style.setProperty(
+        "--color-calendar-halloween-graph-day-L4-bg",
+        response[4],
+      );
+
+      // set contribution winter graph colors
+      root.style.setProperty(
+        "--color-calendar-winter-graph-day-bg",
+        response[0],
+      );
+      root.style.setProperty(
+        "--color-calendar-winter-graph-day-L1-bg",
+        response[1],
+      );
+      root.style.setProperty(
+        "--color-calendar-winter-graph-day-L2-bg",
+        response[2],
+      );
+      root.style.setProperty(
+        "--color-calendar-winter-graph-day-L3-bg",
+        response[3],
+      );
+      root.style.setProperty(
+        "--color-calendar-winter-graph-day-L4-bg",
+        response[4],
+      );
 
       const observer = new MutationObserver((mutations, obs) => {
         const yearlyContributions = document.querySelector(
