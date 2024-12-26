@@ -105,4 +105,12 @@ export const themes: Theme[] = [
     level3: "#454C92",
     level4: "#003366",
   },
+  {
+    name: "LASunset",
+    level0: "#EEAF61",
+    level1: "#FB9062",
+    level2: "#EE5D6C",
+    level3: "#CE4993",
+    level4: "#6A0D83",
+  },
 ];
