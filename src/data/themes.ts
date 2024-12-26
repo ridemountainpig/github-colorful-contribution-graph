@@ -89,4 +89,12 @@ export const themes: Theme[] = [
     level3: "#ffd66f",
     level4: "#ffbc1e",
   },
+  {
+    name: "Low-Saturation",
+    level0: "#AAC9CE",
+    level1: "#B6B4C2",
+    level2: "#C9BBC8",
+    level3: "#E5C1CD",
+    level4: "#F3D8CF",
+  },
 ];
