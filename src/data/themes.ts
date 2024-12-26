@@ -97,4 +97,12 @@ export const themes: Theme[] = [
     level3: "#E5C1CD",
     level4: "#F3D8CF",
   },
+  {
+    name: "ShadesOfPurple",
+    level0: "#D1C7E6",
+    level1: "#BBB4E9",
+    level2: "#827EAE",
+    level3: "#454C92",
+    level4: "#003366",
+  },
 ];
