@@ -90,7 +90,7 @@ export const themes: Theme[] = [
     level4: "#ffbc1e",
   },
   {
-    name: "Low-Saturation",
+    name: "Low Saturation",
     level0: "#AAC9CE",
     level1: "#B6B4C2",
     level2: "#C9BBC8",
@@ -98,7 +98,7 @@ export const themes: Theme[] = [
     level4: "#F3D8CF",
   },
   {
-    name: "ShadesOfPurple",
+    name: "Shades of Purple",
     level0: "#D1C7E6",
     level1: "#BBB4E9",
     level2: "#827EAE",
