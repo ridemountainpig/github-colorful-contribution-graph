@@ -89,4 +89,28 @@ export const themes: Theme[] = [
     level3: "#ffd66f",
     level4: "#ffbc1e",
   },
+  {
+    name: "Low Saturation",
+    level0: "#AAC9CE",
+    level1: "#B6B4C2",
+    level2: "#C9BBC8",
+    level3: "#E5C1CD",
+    level4: "#F3D8CF",
+  },
+  {
+    name: "Shades of Purple",
+    level0: "#D1C7E6",
+    level1: "#BBB4E9",
+    level2: "#827EAE",
+    level3: "#454C92",
+    level4: "#003366",
+  },
+  {
+    name: "LASunset",
+    level0: "#EEAF61",
+    level1: "#FB9062",
+    level2: "#EE5D6C",
+    level3: "#CE4993",
+    level4: "#6A0D83",
+  },
 ];
