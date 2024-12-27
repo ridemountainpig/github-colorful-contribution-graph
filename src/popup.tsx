@@ -220,7 +220,7 @@ const Popup = () => {
           </div>
         </div>
         <div
-          className={`absolute bottom-0 left-1/2 h-fit w-fit -translate-x-1/2 transform rounded-md bg-shark-400 px-2 py-1 text-sm text-white ${hoverShow ? "block" : "hidden"}`}
+          className={`pointer-events-none absolute bottom-0 left-1/2 h-fit w-fit -translate-x-1/2 transform rounded-md bg-shark-400 px-2 py-1 text-sm text-white ${hoverShow ? "block" : "hidden"}`}
         >
           {hoverText}
         </div>
