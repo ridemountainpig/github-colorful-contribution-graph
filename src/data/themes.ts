@@ -193,5 +193,4 @@ export const themes: Theme[] = [
     level3: "#4B0082",
     level4: "#2F4F4F",
   },
-
 ];
