@@ -7,7 +7,7 @@
     "48": "icon-48.png",
     "128": "icon-128.png"
   },
-  "version": "1.0.7",
+  "version": "1.0.8",
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
