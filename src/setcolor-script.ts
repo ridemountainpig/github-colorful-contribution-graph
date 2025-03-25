@@ -26,36 +26,36 @@ chrome.runtime.sendMessage(
     const root = document.documentElement;
 
     const LevelOneColorValue = [
-      root.style.getPropertyValue("--color-calendar-graph-day-L1-bg"),
+      root.style.getPropertyValue("--contribution-default-bgColor-1"),
       hexToRgbSetColor(
-        root.style.getPropertyValue("--color-calendar-graph-day-L1-bg"),
+        root.style.getPropertyValue("--contribution-default-bgColor-1"),
       ),
     ];
     const LevelTwoColorValue = [
-      root.style.getPropertyValue("--color-calendar-graph-day-L2-bg"),
+      root.style.getPropertyValue("--contribution-default-bgColor-2"),
       hexToRgbSetColor(
-        root.style.getPropertyValue("--color-calendar-graph-day-L2-bg"),
+        root.style.getPropertyValue("--contribution-default-bgColor-2"),
       ),
     ];
     const LevelThreeColorValue = [
-      root.style.getPropertyValue("--color-calendar-graph-day-L3-bg"),
+      root.style.getPropertyValue("--contribution-default-bgColor-3"),
       hexToRgbSetColor(
-        root.style.getPropertyValue("--color-calendar-graph-day-L3-bg"),
+        root.style.getPropertyValue("--contribution-default-bgColor-3"),
       ),
     ];
     const LevelFourColorValue = [
-      root.style.getPropertyValue("--color-calendar-graph-day-L4-bg"),
+      root.style.getPropertyValue("--contribution-default-bgColor-4"),
       hexToRgbSetColor(
-        root.style.getPropertyValue("--color-calendar-graph-day-L4-bg"),
+        root.style.getPropertyValue("--contribution-default-bgColor-4"),
       ),
     ];
 
     // Set contribution graph colors
-    root.style.setProperty("--color-calendar-graph-day-bg", response[0]);
-    root.style.setProperty("--color-calendar-graph-day-L1-bg", response[1]);
-    root.style.setProperty("--color-calendar-graph-day-L2-bg", response[2]);
-    root.style.setProperty("--color-calendar-graph-day-L3-bg", response[3]);
-    root.style.setProperty("--color-calendar-graph-day-L4-bg", response[4]);
+    root.style.setProperty("--contribution-default-bgColor-0", response[0]);
+    root.style.setProperty("--contribution-default-bgColor-1", response[1]);
+    root.style.setProperty("--contribution-default-bgColor-2", response[2]);
+    root.style.setProperty("--contribution-default-bgColor-3", response[3]);
+    root.style.setProperty("--contribution-default-bgColor-4", response[4]);
 
     // Set contribution activity highlight blob colors
     const highlightBlob = document.querySelector(".js-highlight-blob");
