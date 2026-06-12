@@ -10,6 +10,19 @@ const Popup = () => {
   const [paletteToggle, setPaletteToggle] = useState(-1);
   const [firstRender, setFirstRender] = useState(true);
 
+  const updatePageGraphColor = () => {
+    chrome.runtime.sendMessage({ type: "updatePageGraphColor" }, () => {
+      if (chrome.runtime.lastError) {
+        console.error(
+          "Error sending updateColor message:",
+          JSON.stringify(chrome.runtime.lastError, null, 2),
+        );
+      } else {
+        console.log("Data sent to the background script.");
+      }
+    });
+  };
+
   const setColor = () => {
     const data = { levelColor: levelColor };
     chrome.runtime.sendMessage({ type: "setColor", data: data }, () => {
@@ -20,16 +33,7 @@ const Popup = () => {
         );
       } else {
         console.log("Data sent to the background script.");
-      }
-    });
-    chrome.runtime.sendMessage({ type: "updatePageGraphColor" }, () => {
-      if (chrome.runtime.lastError) {
-        console.error(
-          "Error sending updateColor message:",
-          JSON.stringify(chrome.runtime.lastError, null, 2),
-        );
-      } else {
-        console.log("Data sent to the background script.");
+        updatePageGraphColor();
       }
     });
   };
@@ -158,14 +162,17 @@ const Popup = () => {
             </div>
           </div>
         </div>
-        <div className="w-fit rounded-[6px] border-2 border-solid border-[#d0d7de] bg-white px-2 py-1">
+        <button
+          className="w-fit cursor-pointer rounded-[6px] border-2 border-solid border-[#d0d7de] bg-white px-2 py-1"
+          onClick={setColor}
+        >
           <div className="flex h-fit items-center py-1">
             <Paintbrush size={16} className="text-shark-400" />
             <div className="px-1 text-[10px] font-bold tracking-wider text-shark-400">
               PAINT THE GRAPH
             </div>
           </div>
-        </div>
+        </button>
       </div>
       <div className="relative mx-4 mt-1">
         <div className="no-scrollbar z-0 h-[110px] w-full overflow-scroll py-1">
