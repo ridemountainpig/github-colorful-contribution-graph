@@ -17,6 +17,49 @@ const isValidHexColor = (hexColor: string) => {
   return regex.test(hexColor);
 };
 
+const quickColors = [
+  "#B60205",
+  "#D93F0B",
+  "#FBCA04",
+  "#0E8A16",
+  "#006B75",
+  "#1D76DB",
+  "#0052CC",
+  "#5319E7",
+  "#E99695",
+  "#F9D0C4",
+  "#FEF2C0",
+  "#C2E0C6",
+  "#BFDADC",
+  "#C5DEF5",
+  "#BFD4F2",
+  "#D4C5F9",
+  "#F6F8FA",
+  "#D0D7DE",
+  "#8C959F",
+  "#57606A",
+  "#24292F",
+  "#0969DA",
+  "#1A7F37",
+  "#9A6700",
+  "#CF222E",
+  "#8250DF",
+  "#FF7B72",
+  "#FFA657",
+  "#F2CC60",
+  "#7EE787",
+  "#79C0FF",
+  "#D2A8FF",
+  "#FFB3C7",
+  "#B7F7D0",
+  "#9BE9A8",
+  "#40C463",
+  "#30A14E",
+  "#216E39",
+  "#54AEFF",
+  "#0A3069",
+];
+
 export const Palette: React.FC<PaletteProps> = ({
   colorProps,
   level,
@@ -96,28 +139,15 @@ export const Palette: React.FC<PaletteProps> = ({
           <HexColorPicker color={color} onChange={setColor} />
         </div>
       ) : (
-        <>
-          <div className="mt-2 flex justify-around">
-            <ColorSelect color="#B60205" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#D93F0B" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#FBCA04" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#0E8A16" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#006B75" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#1D76DB" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#0052CC" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#5319E7" setColor={setColor}></ColorSelect>
-          </div>
-          <div className="mt-2 flex justify-around">
-            <ColorSelect color="#E99695" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#F9D0C4" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#FEF2C0" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#C2E0C6" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#BFDADC" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#C5DEF5" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#BFD4F2" setColor={setColor}></ColorSelect>
-            <ColorSelect color="#D4C5F9" setColor={setColor}></ColorSelect>
-          </div>
-        </>
+        <div className="mt-2 grid max-h-[4.8rem] grid-cols-8 gap-2 overflow-y-auto px-1">
+          {quickColors.map((quickColor) => (
+            <ColorSelect
+              key={quickColor}
+              color={quickColor}
+              setColor={setColor}
+            ></ColorSelect>
+          ))}
+        </div>
       )}
       <div
         className="absolute h-4 w-4 rotate-45 border-l-2 border-t-2 border-solid border-shark-200 bg-white"
